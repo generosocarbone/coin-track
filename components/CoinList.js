@@ -9,7 +9,7 @@
 */
 import React from 'react'
 import CoinItem from './CoinItem'
-import {styles} from '../stles'
+import {styles} from '../styles'
 
 const CoinList = ({coins = []}) => {
   if(coins === undefined || coins.length === 0) {

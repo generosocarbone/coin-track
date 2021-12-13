@@ -8,7 +8,7 @@ import React from 'react'
 import {View} from 'react-native'
 import CoinList from '../components/CoinList'
 import CoinList from '../components/CoinResume'
-import {styles} from '../stles'
+import {styles} from '../styles'
 
 const FirstPage = () => {
   return(

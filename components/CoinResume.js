@@ -7,7 +7,7 @@
 */
 import React from 'react'
 import {Text, TouchableOpacity, View} from 'react-native'
-import {styles} from '../stles'
+import {styles} from '../styles'
 
 const CoinResume = ({spent, fees}) => {
   return(
