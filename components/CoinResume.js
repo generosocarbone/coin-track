@@ -7,19 +7,24 @@
 */
 import React from 'react'
 import {Text, TouchableOpacity, View} from 'react-native'
+import {styles} from '../stles'
 
 const CoinResume = ({spent, fees}) => {
   return(
-    <View>
-      <View>
+    <View style={styles.columns}>
+      <View style={styles.container}>
         <Text>€ {spent}</Text>
         <Text>€ {fees}</Text>
       </View>
-      <TouchableOpacity
-        onPress={() => console.log('Nuova moneta')}
-      />
-        <Text>+</Text>
-      </TouchableOpacity>
+      <View style={styles.container}>
+        <TouchableOpacity
+          onPress={() => console.log('Nuova moneta')}
+        />
+          <Text>
+            +
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
