@@ -6,9 +6,30 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     backgroundColor: '#abc',
+    borderColor: '#000',
+    borderWidth: 1,
+  },
+  columnItem: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: '#cde',
+    borderColor: '#000',
+    borderWidth: 1,
+    padding: 4,
   },
   columns: {
-    flex: 1,
+    backgroundColor: '#bcd',
     flexDirection: 'row',
-  }
+    borderColor: '#000',
+    borderWidth: 1,
+  },
+  smallText: {
+    fontSize: 14,
+    color: '#999',
+  },
+  bigText: {
+    fontSize: 18,
+    color: '#333',
+  },
+  centering: {flexDirection: 'column', justifyContent: 'center', padding: 2}
 })

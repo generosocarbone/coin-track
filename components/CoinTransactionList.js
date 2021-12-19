@@ -1,31 +1,31 @@
 /*
-  <CoinList>
+  <CoinTransactionList>
     <CointItem />
     <CointItem />
     <CointItem />
     ...
     <CointItem />
-  </CoinList>
+  </CoinTransactionList>
 */
 import React from 'react'
-import {TouchableOpacity, View} from 'react-native'
-import CoinItem from './CoinItem'
+import {Text, TouchableOpacity, View} from 'react-native'
+import CoinTransactionItem from './CoinTransactionItem'
 import {styles} from '../styles'
 import BigText from "./BigText";
-import SmallText from "./SmallText";
+import SmallText from "./BigText";
 
-const CoinList = ({navigation, coins = []}) => {
+const CoinTransactionList = ({coins = []}) => {
   if(coins === undefined || coins.length === 0) {
     return (
       <View style={styles.container}>
         <View style={styles.container}>
-          <BigText text={`Nessuna moneta inserita`} />
+          <BigText text={`Nessuna transazione inserita`} />
         </View>
         <View style={styles.container}>
           <TouchableOpacity
             onPress={() => console.log('Nuova moneta')}
           >
-            <SmallText text={`Nuova moneta`} />
+            <SmallText text={`Nuova transazione`} />
           </TouchableOpacity>
         </View>
       </View>
@@ -36,8 +36,7 @@ const CoinList = ({navigation, coins = []}) => {
       >
         {
           coins.map(
-            coin => <CoinItem
-              navigation={navigation}
+            coin => <CoinTransactionItem
               key={coin.tag}
               name={coin.name}
               tag={coin.tag}
@@ -51,4 +50,4 @@ const CoinList = ({navigation, coins = []}) => {
   }
 }
 
-export default CoinList
+export default CoinTransactionList

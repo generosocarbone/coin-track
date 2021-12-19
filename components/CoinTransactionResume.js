@@ -11,7 +11,7 @@ import {styles} from '../styles'
 import BigText from "./BigText";
 import SmallText from "./SmallText";
 
-const CoinResume = ({spent, fees}) => {
+const CoinTransactionResume = ({spent, fees}) => {
   return(
     <View style={styles.columns}>
       <View style={styles.container}>
@@ -20,13 +20,13 @@ const CoinResume = ({spent, fees}) => {
       </View>
       <View style={styles.centering}>
         <TouchableOpacity
-          onPress={() => console.log('Nuova moneta')}
+          onPress={() => console.log('Nuova transazione')}
         >
-            <SmallText text={'Nuova moneta'} />
+            <SmallText text={'Nuova transazione'} />
         </TouchableOpacity>
       </View>
     </View>
   )
 }
 
-export default CoinResume
+export default CoinTransactionResume
