@@ -13,8 +13,12 @@ import CoinItem from './CoinItem'
 import {styles} from '../styles'
 import BigText from "./BigText";
 import SmallText from "./SmallText";
+import { useNavigation } from '@react-navigation/native';
 
-const CoinList = ({navigation, coins = []}) => {
+const CoinList = ({coins = []}) => {
+
+  const navigation = useNavigation()
+
   if(coins === undefined || coins.length === 0) {
     return (
       <View style={styles.container}>
@@ -23,7 +27,7 @@ const CoinList = ({navigation, coins = []}) => {
         </View>
         <View style={styles.container}>
           <TouchableOpacity
-            onPress={() => console.log('Nuova moneta')}
+            onPress={() => navigation.navigate('New Coin')}
           >
             <SmallText text={`Nuova moneta`} />
           </TouchableOpacity>

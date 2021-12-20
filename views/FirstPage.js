@@ -5,24 +5,35 @@
   </FirstPage>
 */
 import React from 'react'
-import {View} from 'react-native'
+import {SafeAreaView} from 'react-native'
 import CoinList from '../components/CoinList'
 import CoinResume from '../components/CoinResume'
 import {styles} from '../styles'
+import {connect} from "react-redux";
 
-const coins = [
+const xxx = [
   {name: 'Bitcoin', tag: 'BTC', spent: '0.00', fees: '0.00'},
   {name: 'Algorand', tag: 'ALGO', spent: '0.00', fees: '0.00'},
-  {name: 'IoTex', tag: 'IOTX', spent: '0.00', fees: '0.00'},
+  {name: 'IoTeX', tag: 'IOTX', spent: '0.00', fees: '0.00'},
 ]
 
-const FirstPage = ({navigation}) => {
+const FirstPage = ({coins}) => {
   return(
-    <View style={styles.container}>
-      <CoinList coins={coins} navigation={navigation} />
+    <SafeAreaView style={styles.container}>
+      <CoinList coins={coins} />
       <CoinResume spent={'0.00'} fees={'0.00'} />
-    </View>
+    </SafeAreaView>
   )
 }
 
-export default FirstPage
+const mapStateToProps = ({coins}) => {
+  return {
+    coins: coins.map(c => ({
+      ...c,
+      spent: '0.00',
+      fees: '0.00'
+    }))
+  }
+}
+
+export default connect(mapStateToProps)(FirstPage)

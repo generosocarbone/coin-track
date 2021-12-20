@@ -31,5 +31,11 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     color: '#333',
   },
-  centering: {flexDirection: 'column', justifyContent: 'center', padding: 2}
+  centering: {flexDirection: 'column', justifyContent: 'center', padding: 2},
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
 })
