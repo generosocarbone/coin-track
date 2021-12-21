@@ -8,11 +8,11 @@
   </CoinTransactionList>
 */
 import React from 'react'
-import {Text, TouchableOpacity, View} from 'react-native'
+import {View} from 'react-native'
 import CoinTransactionItem from './CoinTransactionItem'
 import {styles} from '../styles'
 import BigText from "./BigText";
-import SmallText from "./BigText";
+import CoinButton from "./CoinButton";
 
 const CoinTransactionList = ({coins = []}) => {
   if(coins === undefined || coins.length === 0) {
@@ -22,11 +22,10 @@ const CoinTransactionList = ({coins = []}) => {
           <BigText text={`Nessuna transazione inserita`} />
         </View>
         <View style={styles.container}>
-          <TouchableOpacity
-            onPress={() => console.log('Nuova moneta')}
-          >
-            <SmallText text={`Nuova transazione`} />
-          </TouchableOpacity>
+          <CoinButton
+            press={() => console.log('Nuova transazione')}
+            text='Nuova transazione'
+          />
         </View>
       </View>
     )

@@ -6,10 +6,11 @@
   </CoinResume>
 */
 import React from 'react'
-import {TouchableOpacity, View} from 'react-native'
+import {View} from 'react-native'
 import {styles} from '../styles'
 import BigText from "./BigText";
 import SmallText from "./SmallText";
+import CoinButton from "./CoinButton";
 
 const CoinTransactionResume = ({spent, fees}) => {
   return(
@@ -19,11 +20,10 @@ const CoinTransactionResume = ({spent, fees}) => {
         <SmallText text={`Fees: € ${fees}`} />
       </View>
       <View style={styles.centering}>
-        <TouchableOpacity
-          onPress={() => console.log('Nuova transazione')}
-        >
-            <SmallText text={'Nuova transazione'} />
-        </TouchableOpacity>
+        <CoinButton
+          press={() => console.log('Nuova transazione')}
+          text='Nuova transazione'
+        />
       </View>
     </View>
   )

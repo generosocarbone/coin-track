@@ -6,11 +6,12 @@
   </CoinResume>
 */
 import React from 'react'
-import {TouchableOpacity, View} from 'react-native'
+import {View} from 'react-native'
 import {styles} from '../styles'
 import BigText from "./BigText";
 import SmallText from "./SmallText";
 import { useNavigation } from '@react-navigation/native';
+import CoinButton from "./CoinButton";
 
 // se non passo navigation come props a CoinResume e clicco sul tasto 'Nuova moneta'
 // l'applicazione va in eccezione. Perché? Probabilmente perché CoinResume non fa
@@ -27,11 +28,10 @@ const CoinResume = ({spent, fees}) => {
         <SmallText text={`Fees: € ${fees}`} />
       </View>
       <View style={styles.centering}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('New Coin')}
-        >
-            <SmallText text={'Nuova moneta'} />
-        </TouchableOpacity>
+        <CoinButton
+          press={() => navigation.navigate('New Coin')}
+          text='Nuova moneta'
+        />
       </View>
     </View>
   )

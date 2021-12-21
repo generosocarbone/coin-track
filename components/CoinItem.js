@@ -5,7 +5,7 @@
   </CoinItem>
 */
 import React from 'react'
-import {Text, TouchableOpacity, View} from 'react-native'
+import {TouchableOpacity, View} from 'react-native'
 import {styles} from '../styles'
 import SmallText from "./SmallText";
 import BigText from "./BigText";

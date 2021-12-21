@@ -1,15 +1,14 @@
 import React, {useState} from 'react'
 import {
   SafeAreaView,
-  TextInput, TouchableOpacity,
+  TextInput,
   View
 } from 'react-native'
 import {connect} from "react-redux";
 import {styles} from '../styles'
+import CoinButton from '../components/CoinButton'
 import BigText from '../components/BigText'
-import SmallText from '../components/BigText'
 import {createCoinAction} from "../actions";
-
 
 // todo: prima di effettuare il salvataggio controllare che la moneta o il tag non esistano già nello store
 const CreateCoin = ({
@@ -43,35 +42,34 @@ const CreateCoin = ({
       <View
         style={styles.columns}
       >
-        <TouchableOpacity
-          style={styles.columnItem}
-          onPress={() => {
-            onChangeName('')
-            onChangeTag('')
-          }}
-        >
-          <SmallText text={'Cancella'} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.columnItem}
-          onPress={() => {
-            if(name.length > 0 && tag.length > 0) {
-              let n = coins.find(c => c.name === name)
-              let t = coins.find(c => c.tag === tag)
-              if(!n && !t) {
-                dispatch(createCoinAction(name, tag))
-                onChangeName('')
-                onChangeTag('')
-                navigation.pop()
-              } else {
-                // todo: mostrare un messaggio
-                console.log('duplicate money')
+        <CoinButton
+            press={() => {
+              onChangeName('')
+              onChangeTag('')
+            }}
+            text='Cancella'
+            icon={undefined}
+        />
+
+        <CoinButton
+            press={() => {
+              if(name.length > 0 && tag.length > 0) {
+                let n = coins.find(c => c.name === name)
+                let t = coins.find(c => c.tag === tag)
+                if(!n && !t) {
+                  dispatch(createCoinAction(name, tag))
+                  onChangeName('')
+                  onChangeTag('')
+                  navigation.pop()
+                } else {
+                  // todo: mostrare un messaggio
+                  console.log('duplicate money')
+                }
               }
-            }
-          }}
-        >
-          <SmallText text={'Salva'} />
-        </TouchableOpacity>
+            }}
+            text='Salva'
+            icon={undefined}
+        />
       </View>
     </SafeAreaView>
   )

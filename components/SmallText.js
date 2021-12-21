@@ -1,12 +1,11 @@
-
 import React from 'react'
-import {Text, View} from 'react-native'
+import {Text} from 'react-native'
 import {styles} from '../styles'
 
 const SmallText = ({text = 'small text'}) => {
-    return(
-        <Text style={styles.smallText}>{text}</Text>
-    );
+  return(
+    <Text style={styles.smallText}>{text}</Text>
+  );
 }
 
 export default SmallText
