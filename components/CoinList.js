@@ -40,14 +40,7 @@ const CoinList = ({coins = []}) => {
       >
         {
           coins.map(
-            coin => <CoinItem
-              navigation={navigation}
-              key={coin.tag}
-              name={coin.name}
-              tag={coin.tag}
-              spent={coin.spent}
-              fees={coin.fees}
-            />
+            coin => <CoinItem navigation={navigation} key={coin.tag} coin={coin} />
           )
         }
       </View>

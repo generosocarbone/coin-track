@@ -10,11 +10,16 @@ import {styles} from '../styles'
 import SmallText from "./SmallText";
 import BigText from "./BigText";
 
-const CoinItem = ({navigation, name = 'Name', tag = 'TAG', spent = '0.00', fees = '0.00'}) => {
+const CoinItem = ({navigation, coin}) => {
+
+  let {name, tag, spent, fees} = coin
+
   return(
     <TouchableOpacity
       style={styles.columns}
-      onPress={() => navigation.navigate('Coin Details')}
+      onPress={() => navigation.navigate('Coin Details', {
+        coin
+      })}
     >
       <View
         style={styles.columnItem}

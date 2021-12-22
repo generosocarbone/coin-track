@@ -11,27 +11,31 @@ import CoinResume from '../components/CoinResume'
 import {styles} from '../styles'
 import {connect} from "react-redux";
 
-const xxx = [
-  {name: 'Bitcoin', tag: 'BTC', spent: '0.00', fees: '0.00'},
-  {name: 'Algorand', tag: 'ALGO', spent: '0.00', fees: '0.00'},
-  {name: 'IoTeX', tag: 'IOTX', spent: '0.00', fees: '0.00'},
-]
-
-const FirstPage = ({coins}) => {
+const FirstPage = ({coins, spent, fees}) => {
   return(
     <SafeAreaView style={styles.container}>
       <CoinList coins={coins} />
-      <CoinResume spent={'0.00'} fees={'0.00'} />
+      <CoinResume spent={spent} fees={fees} />
     </SafeAreaView>
   )
 }
 
 const mapStateToProps = ({coins}) => {
+
+  const spentReducer = (previousValue, currentValue) => previousValue + currentValue;
+  const feesReducer = (previousValue, currentValue) => previousValue + currentValue;
+
+  const full = coins.map(c => c.calculateSpent())
+  const spent = full.map(c => c.spent).reduce(spentReducer, 0)
+  const fees = full.map(c => c.fees).reduce(feesReducer, 0)
+
   return {
     coins: coins.map(c => ({
       ...c,
       ...(c.calculateSpent())
-    }))
+    })),
+    spent,
+    fees,
   }
 }
 
