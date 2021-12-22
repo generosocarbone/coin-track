@@ -19,13 +19,17 @@ const CoinTransactionList = ({coins = []}) => {
     return (
       <View style={styles.container}>
         <View style={styles.container}>
-          <BigText text={`Nessuna transazione inserita`} />
+          <View style={styles.centeringRow}>
+            <BigText text={`Nessuna transazione inserita`} />
+          </View>
         </View>
         <View style={styles.container}>
-          <CoinButton
-            press={() => console.log('Nuova transazione')}
-            text='Nuova transazione'
-          />
+          <View style={styles.centeringRow}>
+            <CoinButton
+              press={() => console.log('Nuova transazione')}
+              text='Nuova transazione'
+            />
+          </View>
         </View>
       </View>
     )

@@ -1,8 +1,5 @@
 /*
-  <FirstPage>
-    <CoinList>
-    <CointResume>
-  </FirstPage>
+  In this page it will be shown the transaction of a selected coin
 */
 import React from 'react'
 import {SafeAreaView} from 'react-native'

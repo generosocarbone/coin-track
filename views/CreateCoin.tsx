@@ -12,10 +12,10 @@ import {createCoinAction} from "../actions";
 
 // todo: prima di effettuare il salvataggio controllare che la moneta o il tag non esistano già nello store
 const CreateCoin = ({
-  dispatch,
-  navigation,
-  coins
-}) => {
+                      dispatch,
+                      navigation,
+                      coins
+                    }) => {
 
   const [name, onChangeName] = useState('');
   const [tag, onChangeTag] = useState('');
@@ -42,34 +42,42 @@ const CreateCoin = ({
       <View
         style={styles.columns}
       >
-        <CoinButton
+        <View
+          style={[styles.columnItem, styles.centeringRow]}
+        >
+          <CoinButton
             press={() => {
               onChangeName('')
               onChangeTag('')
             }}
             text='Cancella'
             icon={undefined}
-        />
-
+            principal={false}
+          />
+        </View>
+        <View
+          style={[styles.columnItem, styles.centeringRow]}
+        >
         <CoinButton
-            press={() => {
-              if(name.length > 0 && tag.length > 0) {
-                let n = coins.find(c => c.name === name)
-                let t = coins.find(c => c.tag === tag)
-                if(!n && !t) {
-                  dispatch(createCoinAction(name, tag))
-                  onChangeName('')
-                  onChangeTag('')
-                  navigation.pop()
-                } else {
-                  // todo: mostrare un messaggio
-                  console.log('duplicate money')
-                }
+          press={() => {
+            if(name.length > 0 && tag.length > 0) {
+              let n = coins.find(c => c.name === name)
+              let t = coins.find(c => c.tag === tag)
+              if(!n && !t) {
+                dispatch(createCoinAction(name, tag))
+                onChangeName('')
+                onChangeTag('')
+                navigation.pop()
+              } else {
+                // todo: mostrare un messaggio
+                console.log('duplicate money')
               }
-            }}
-            text='Salva'
-            icon={undefined}
+            }
+          }}
+          text='Salva'
+          icon={undefined}
         />
+        </View>
       </View>
     </SafeAreaView>
   )

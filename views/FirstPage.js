@@ -30,8 +30,7 @@ const mapStateToProps = ({coins}) => {
   return {
     coins: coins.map(c => ({
       ...c,
-      spent: '0.00',
-      fees: '0.00'
+      ...(c.calculateSpent())
     }))
   }
 }

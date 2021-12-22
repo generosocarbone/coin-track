@@ -32,10 +32,27 @@ export const styles = StyleSheet.create({
     color: '#333',
   },
   centering: {flexDirection: 'column', justifyContent: 'center', padding: 2},
+  centeringRow: {flexDirection: 'row', justifyContent: 'center', padding: 2},
   input: {
     height: 40,
     margin: 12,
     borderWidth: 1,
     padding: 10,
   },
+  button: {
+    padding: 10,
+    borderWidth: 1,
+    width: 100,
+    backgroundColor: '#333',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  outlineButton: {
+    padding: 10,
+    borderWidth: 1,
+    width: 100,
+    borderColor: '#333',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  }
 })
